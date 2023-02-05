@@ -7,12 +7,12 @@ describe("NewsClient class", () => {
     fetch.mockResponseOnce(
       JSON.stringify({
         response: {
-          results: ['result'],
-        }
+          results: ["result"],
+        },
       })
     );
 
     const americaNews = await client.fetchNewsData("America");
-    expect(americaNews).toStrictEqual(['result']);
+    expect(americaNews).toStrictEqual(["result"]);
   });
 });

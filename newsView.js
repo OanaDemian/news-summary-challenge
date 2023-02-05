@@ -5,16 +5,16 @@ class NewsView {
     this.newsInputEl = document.querySelector("#user-input");
     this.mainNewsEl = document.querySelector("#main-container");
     const submitButtonEl = document.querySelector("#submit-button");
-
     submitButtonEl.addEventListener("click", async () => this.searchNews());
   }
+
   async searchNews() {
     const searchQuery = this.newsInputEl.value;
     const news = await this.client.fetchNewsData(searchQuery);
     this.model.setNews(news);
-    console.log(news);
     this.displayNews();
   }
+
   displayNews() {
     const allNews = this.model.getNews();
     allNews.forEach((article) => {
