@@ -54,6 +54,7 @@ describe("NewsView", () => {
     expect(document.querySelectorAll("div.article")[0].textContent).toEqual(
       "A headline"
     );
+    expect(document.querySelectorAll("a.anchorTag")[0].href).toEqual("https://www.theguardian.com/world/2023/feb/01/martin-loses-appeal-in-romania-over-extended-detention");
   });
 
   it("searches for the news when search is clicked", async () => {

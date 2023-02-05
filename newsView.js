@@ -16,6 +16,7 @@ class NewsView {
   }
 
   displayNews() {
+    this.mainNewsEl.replaceChildren();
     const allNews = this.model.getNews();
     allNews.forEach((article) => {
       this.displayArticle(article);
@@ -24,13 +25,17 @@ class NewsView {
 
   displayArticle(article) {
     const newsDiv = document.createElement("div");
+    newsDiv.className = "article";
+    const newsLink = document.createElement("a");
+    newsLink.className = "anchorTag"
+    newsLink.href = article.webUrl
     const newsHeader = document.createElement("header");
     const newsImage = document.createElement("img");
     newsImage.src = article.fields.thumbnail;
     newsHeader.textContent = article.fields.headline;
-    newsDiv.appendChild(newsHeader);
-    newsDiv.appendChild(newsImage);
-    newsDiv.className = "article";
+    newsDiv.appendChild(newsLink)
+    newsLink.appendChild(newsHeader);
+    newsLink.appendChild(newsImage);
     this.mainNewsEl.append(newsDiv);
   }
 }
